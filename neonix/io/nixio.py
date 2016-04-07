@@ -951,7 +951,6 @@ class NixIO(BaseIO):
         self._object_map[id(ut)] = nix_source
 
     def _write_cascade(self, neo_obj, path=""):
-        self.resolve_name_conflicts(neo_obj)
         for neocontainer in getattr(neo_obj, "_child_containers", []):
             neotype = neocontainer[:-1]
             children = getattr(neo_obj, neocontainer)
